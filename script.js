@@ -161,13 +161,14 @@ document.addEventListener('DOMContentLoaded', () => {
 const translations = {
     nl: {
         title: "SP Ontwerp - Alu Gevels Engineering en Technisch Advies",
+        "meta.description": "SP Ontwerp: freelance gevel engineering, 2D/3D engineering, aluminium, RVS, composiet en vliesgevels. Productietekeningen, STEP/DXF/IFC files, montagetekeningen. Ridderkerk.",
         "nav.home": "Home",
         "nav.services": "Diensten",
         "nav.projects": "Projecten",
-        "nav.about": "Over Ons",
+        "nav.about": "Over SP Ontwerp",
         "nav.contact": "Contact",
         "hero.subtitle": "UW PARTNER VOOR GEVEL ENGINEERING",
-        "hero.description": "Freelance bouwkundig tekenaar en BIM-Revit modelleur voor<br>schetsontwerpen, vergunningen en technische uitwerkingen.",
+        "hero.description": "Freelance | Gevel Engineering | 2D 3D engineering | Aluminium | RVS | Composiet specialist | Vliesgevels | Productietekeningen | STEP files | DXF files | IFC files | Montagetekeningen",
         "hero.cta": "Ontdek Onze Diensten",
         "services.title": "Alu Gevels Engineering en Technisch Advies",
         "services.subtitle": "Wat kan SP Ontwerp voor u verzorgen:",
@@ -187,8 +188,8 @@ const translations = {
         "services.item14": "2D 3D engineering van uw geventileerde gevels (eternit, trespa)",
         "projects.title": "Projecten",
         "about.title": "Over SP Ontwerp",
-        "about.intro": "In 20 jaar ervaring heb ik gewerkt met verschillende materialen/producten. Zoals: lichte staalconstructie, stalen roosters, vlakke aluminium plaat, geperst aluminium, aluminium balkons, RVS, RVS composiet, composiet (Alucobond, Larson), honingraad, eternit, vliesgevels.",
-        "about.mission": "Onze missie is om hoogwaardige engineering en technisch advies te leveren voor alu gevels en gevelsystemen. Met jarenlange ervaring en expertise in BIM-modellering, 3D engineering en productie, zijn wij uw betrouwbare partner voor complexe gevelprojecten.",
+        "about.intro": "In 20 jaar ervaring heb ik gewerkt met verschillende materialen/producten. Zoals: lichte staalconstructie, stalen roosters, vlakke aluminium plaat, geperst aluminium, aluminium balkons, RVS, RVS composiet, composiet (Alucobond, Larson), honingraad, eternit.<br><br>Op basis van de ervaring met de composiet materialen ben ik uitgeroepen tot composiet specialist.",
+        "about.mission": "Mijn missie is om hoogwaardige engineering en technisch advies te leveren voor alu gevels en gevelsystemen. Met jarenlange ervaring en expertise in 3D engineering en productie voorbereiding, ben ik uw betrouwbare partner voor complexe gevelprojecten.",
         "contact.title": "Contact en Adres",
         "contact.address": "Adres",
         "contact.vat": "BTW nr.",
@@ -199,13 +200,14 @@ const translations = {
     },
     en: {
         title: "SP Ontwerp - Aluminum Facades Engineering and Technical Advice",
+        "meta.description": "SP Ontwerp: freelance facade engineering, 2D/3D engineering, aluminum, stainless steel, composite and curtain walls. Production drawings, STEP/DXF/IFC files, assembly drawings. Ridderkerk.",
         "nav.home": "Home",
         "nav.services": "Services",
         "nav.projects": "Projects",
-        "nav.about": "About Us",
+        "nav.about": "About SP Ontwerp",
         "nav.contact": "Contact",
         "hero.subtitle": "YOUR PARTNER FOR FACADE ENGINEERING",
-        "hero.description": "Freelance architectural draftsman and BIM-Revit modeler for<br>sketch designs, permits and technical elaborations.",
+        "hero.description": "Freelance | Facade Engineering | 2D 3D engineering | Aluminum | Stainless steel | Composite specialist | Curtain walls | Production drawings | STEP files | DXF files | IFC files | Assembly drawings",
         "hero.cta": "Discover Our Services",
         "services.title": "Aluminum Facades Engineering and Technical Advice",
         "services.subtitle": "What can SP Ontwerp provide for you:",
@@ -225,8 +227,8 @@ const translations = {
         "services.item14": "2D 3D engineering of your ventilated facades (eternit, trespa)",
         "projects.title": "Projects",
         "about.title": "About SP Ontwerp",
-        "about.intro": "In 20 years of experience, I have worked with various materials/products. Such as: light steel construction, steel gratings, flat aluminum sheet, pressed aluminum, aluminum balconies, stainless steel, stainless steel composite, composite (Alucobond, Larson), honeycomb, eternit, curtain walls.",
-        "about.mission": "Our mission is to deliver high-quality engineering and technical advice for aluminum facades and facade systems. With years of experience and expertise in BIM modeling, 3D engineering and production, we are your reliable partner for complex facade projects.",
+        "about.intro": "In 20 years of experience, I have worked with various materials/products. Such as: light steel construction, steel gratings, flat aluminum sheet, pressed aluminum, aluminum balconies, stainless steel, stainless steel composite, composite (Alucobond, Larson), honeycomb, eternit.<br><br>Based on my experience with composite materials, I have been designated as a composite specialist.",
+        "about.mission": "My mission is to deliver high-quality engineering and technical advice for aluminum facades and facade systems. With years of experience and expertise in 3D engineering and production preparation, I am your reliable partner for complex facade projects.",
         "contact.title": "Contact and Address",
         "contact.address": "Address",
         "contact.vat": "VAT no.",
@@ -250,6 +252,12 @@ function changeLanguage(lang) {
     
     // Update page title
     document.title = translations[lang].title;
+    
+    // Update meta description
+    const metaDesc = document.getElementById('meta-description');
+    if (metaDesc && translations[lang]["meta.description"]) {
+        metaDesc.setAttribute('content', translations[lang]["meta.description"]);
+    }
     
     // Update all elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(element => {

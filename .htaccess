@@ -1,0 +1,12 @@
+# Force single canonical URL: https://spontwerp.nl/ (no www)
+
+RewriteEngine On
+RewriteBase /
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect www to non-www (so www.spontwerp.nl -> spontwerp.nl)
+RewriteCond %{HTTP_HOST} ^www\.spontwerp\.nl$ [NC]
+RewriteRule ^ https://spontwerp.nl%{REQUEST_URI} [L,R=301]
